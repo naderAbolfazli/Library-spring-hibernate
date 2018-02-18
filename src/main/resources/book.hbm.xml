@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ir.maktab">
+
+    <class name="ir.maktab.model.book.Book" table="book">
+
+        <id name="id" column="id" type="int">
+            <generator class="native"/>
+        </id>
+
+        <property name="title"/>
+
+        <property name="isbnNumber" column="isbn_number" type="long" unique="true"/>
+
+        <property name="pageNumber" column="page_number" type="int"/>
+
+        <property name="reference" column="is_reference" type="int"/>
+
+        <many-to-one name="author" column="author_id" class="ir.maktab.model.author.Author"/>
+
+    </class>
+
+</hibernate-mapping>
